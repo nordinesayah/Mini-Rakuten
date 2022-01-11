@@ -21,7 +21,7 @@ class ProductViewController: UIViewController, UITextFieldDelegate, UITableViewD
         super.viewDidLoad()
 
         tableViewController.isHidden = true
-        Backend.SearchKeyword()
+        Backend.searchKeyword()
         self.tableViewController.reloadData()
     }
     
@@ -48,11 +48,11 @@ class ProductViewController: UIViewController, UITextFieldDelegate, UITableViewD
         return true
     }
 
-    func performAction() {
+    private func performAction() {
         // action button search
         tableViewController.isHidden = false
         self.view.endEditing(true)
-        Backend.SearchKeyword()
+        Backend.searchKeyword()
         self.tableViewController.reloadData()
     }
     
@@ -81,7 +81,7 @@ class ProductViewController: UIViewController, UITextFieldDelegate, UITableViewD
             cell.newPriceLabel.text = ""
         }
         if (Backend.responseApi!.products[indexPath.row].usedBestPrice != 0) {
-            cell.occasionPriceLabel.text = String("Occasion from \(Int(Backend.responseApi!.products[indexPath.row].usedBestPrice)) €")
+            cell.occasionPriceLabel.text = String("Used product from \(Int(Backend.responseApi!.products[indexPath.row].usedBestPrice)) €")
         } else {
             cell.occasionPriceLabel.text = ""
         }
@@ -92,12 +92,10 @@ class ProductViewController: UIViewController, UITextFieldDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segueDetailsProduct", sender: self)
     }
-    
 }
 
 // Add icon on TextField
 extension UITextField {
-
     func setIcon(_ image: UIImage) {
        let iconView = UIImageView(frame:
                       CGRect(x: 10, y: 5, width: 20, height: 20))
@@ -108,5 +106,4 @@ extension UITextField {
        leftView = iconContainerView
        leftViewMode = .always
     }
-    
 }

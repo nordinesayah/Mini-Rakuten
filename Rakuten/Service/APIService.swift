@@ -14,7 +14,7 @@ class BackEndService {
     var responseDetails: Details?
     var isLoading = false
     
-    func SearchKeyword() {
+    func searchKeyword() {
         isLoading = true
         guard let url = URL(string: "https://4206121f-64a1-4256-a73d-2ac541b3efe4.mock.pstmn.io/products/search?keyword=samsung") else {
             print("Invalid URL")
@@ -25,10 +25,10 @@ class BackEndService {
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let data = data {
-                if let Reponse = try? JSONDecoder().decode(ReponseApi.self, from: data) {
+                if let reponse = try? JSONDecoder().decode(ReponseApi.self, from: data) {
                     
                     DispatchQueue.main.async {
-                        self.responseApi = Reponse
+                        self.responseApi = reponse
                         self.isLoading = false
                     }
                 } else {
@@ -44,7 +44,7 @@ class BackEndService {
         }.resume()
     }
     
-    func LoadDetailProduct() {
+    func loadDetailProduct() {
         guard let url = URL(string: "https://4206121f-64a1-4256-a73d-2ac541b3efe4.mock.pstmn.io/products/detail?id=6035914280") else {
             print("Invalid URL")
             return
@@ -67,8 +67,6 @@ class BackEndService {
             }
         }.resume()
     }
-    
-    
 }
 
 class ImageLoaderService {
@@ -83,6 +81,4 @@ class ImageLoaderService {
         }
         task.resume()
     }
-    
-    
 }

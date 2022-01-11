@@ -17,7 +17,7 @@ struct ReponseApi: Codable {
     var products: [Products]
 }
 
-struct Products: Codable, Hashable {
+struct Products: Codable {
     var id: Int
     var newBestPrice: Double
     var usedBestPrice: Double
@@ -29,7 +29,7 @@ struct Products: Codable, Hashable {
     var buybox: Buybox
 }
 
-struct Buybox: Codable, Hashable {
+struct Buybox: Codable {
     var salePrice: Double?
     var advertType: String
     var advertQuality: String
@@ -53,16 +53,16 @@ struct Details: Codable {
     var images: [ImageApi]
 }
 
-struct ImageApi: Codable, Hashable {
+struct ImageApi: Codable {
     var id: Int
     var imagesUrls: ImagesUrls
 }
 
-struct ImagesUrls: Codable, Hashable {
+struct ImagesUrls: Codable {
     var entry: [Imageurl]
 }
 
-struct Imageurl: Codable, Hashable {
+struct Imageurl: Codable {
     var size: String
     var url: String
 }

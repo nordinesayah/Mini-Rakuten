@@ -141,7 +141,6 @@
 		8244D0EE27406BF0009C2066 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8244D0EC27406470009C2066 /* ProductTableViewCell.swift */,
 				8244D0F127406CEE009C2066 /* Product.swift */,
 			);
 			path = Model;
@@ -150,6 +149,7 @@
 		8244D0EF27406BFA009C2066 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8244D0EC27406470009C2066 /* ProductTableViewCell.swift */,
 				8244D06C273D8877009C2066 /* Main.storyboard */,
 				8244D071273D887A009C2066 /* LaunchScreen.storyboard */,
 			);
@@ -505,7 +505,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nsayah.com.Rakuten;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsayah.Rakuten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -534,7 +534,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nsayah.com.Rakuten;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsayah.Rakuten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

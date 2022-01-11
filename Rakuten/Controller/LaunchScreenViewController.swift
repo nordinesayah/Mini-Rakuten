@@ -17,7 +17,7 @@ class LaunchScreenViewController: UIViewController {
     }
     
     // Check internet
-    func monitorNetwork() {
+    private func monitorNetwork() {
         let monitor = NWPathMonitor()
         
         monitor.pathUpdateHandler = { path in
@@ -37,7 +37,7 @@ class LaunchScreenViewController: UIViewController {
         monitor.start(queue: queue)
     }
     
-    func createAlert(title: String, message: String) {
+    private func createAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
         //Creating button on alert
@@ -45,15 +45,7 @@ class LaunchScreenViewController: UIViewController {
             alert.dismiss(animated: true, completion: nil)
             self.monitorNetwork()
         }))
-        alert.addAction(UIAlertAction(title: "Leave", style: .default, handler: {(action) in
-            alert.dismiss(animated: true, completion: nil)
-            
-            //exite application
-            exit(0)
-        }))
         
         self.present(alert, animated: true, completion: nil)
     }
-
-    
 }

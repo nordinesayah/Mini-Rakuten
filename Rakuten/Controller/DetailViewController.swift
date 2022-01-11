@@ -22,15 +22,15 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Backend.LoadDetailProduct()
+        Backend.loadDetailProduct()
         productDetails()    }
     
     override func viewDidAppear(_ animated: Bool) {
-        Backend.LoadDetailProduct()
+        Backend.loadDetailProduct()
         productDetails()
     }
     
-    func productDetails() {
+    private func productDetails() {
         DispatchQueue.main.async {
             self.ImageService.loadImage(for: String(self.Backend.responseDetails?.images.first?.imagesUrls.entry.first?.url ?? "")) { image in
                 DispatchQueue.main.async {
@@ -45,6 +45,4 @@ class DetailViewController: UIViewController {
             self.sellerRateLabel.text = String("\(self.Backend.responseDetails?.globalRating.score ?? 0)/5")
         }
     }
-
-    
 }
